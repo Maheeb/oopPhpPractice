@@ -9,15 +9,38 @@
 class simpleClass
 {
 
-    public  static $var = "A variable";
+    private $name="";
+    private $age="";
 
-    public static function display(){
-
-        echo  self::$var;
+    /**
+     * @return string
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function setAge($age)
+    {
+        $this->age= $age;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfo()
+    {
+        echo "hello my name is ".$this->name." my age is ".$this->age;
+    }
+
+
 }
 
 $obj = new simpleClass();
-$obj->display();
+$obj->setName("Maheeb")->setAge("25")->getInfo();
 
-//simpleClass::display();
