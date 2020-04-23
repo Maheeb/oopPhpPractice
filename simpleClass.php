@@ -9,38 +9,40 @@
 class simpleClass
 {
 
-    private $name="";
-    private $age="";
+    private $name;
 
     /**
      * @return string
      */
-    public function setName($name)
+
+    public function __construct($val)
     {
-        $this->name = $name;
-        return $this;
+        return $this->name = $val;
     }
 
     /**
      * @return string
      */
-    public function setAge($age)
-    {
-        $this->age= $age;
-        return $this;
+
+    public function sayHello(){
+        echo "hello world";
     }
 
     /**
      * @return string
      */
-    public function getInfo()
+
+    public function __destruct()
     {
-        echo "hello my name is ".$this->name." my age is ".$this->age;
+        // TODO: Implement __destruct() method.
+
+        echo "bye bye ".$this->name;
     }
 
 
 }
 
-$obj = new simpleClass();
-$obj->setName("Maheeb")->setAge("25")->getInfo();
+$obj = new simpleClass('Maheeb');
+
+$obj->sayHello();
 
