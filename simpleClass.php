@@ -6,26 +6,27 @@
  * Time: 9:21 PM
  */
 
-abstract class simpleClass
-{
-    abstract protected function getName($name);
-}
+class simpleClass{
+    private $data = array();
 
-class  childClass extends simpleClass{
-
-    public function getName($name)
+    public function __set($name, $value)
     {
-        // TODO: Implement getName() method.
-        return "hi " . $name;
+        // TODO: Implement __set() method.
+        echo "Seeting '$name' property to '$value' \n";
+        $this->data[$name] = $value;
     }
-
+    public function __get($name)
+    {
+        echo "getting property \n";
+        if (array_key_exists($name,$this->data)){
+            return $this->data[$name];
+        }
+    }
 }
 
-$obj = new childClass();
-$var= $obj->getName('Maheeb');
-echo $var;
-
-
+$obj = new simpleClass();
+$obj-> a = "Maheeb";
+echo $obj->a. "\n";
 
 
 
