@@ -7,26 +7,23 @@
  */
 
 class simpleClass{
-    private $data = array();
 
-    public function __set($name, $value)
+    public $name ="";
+    private $roll ="";
+
+    function __construct($name,$roll)
     {
-        // TODO: Implement __set() method.
-        echo "Seeting '$name' property to '$value' \n";
-        $this->data[$name] = $value;
-    }
-    public function __get($name)
-    {
-        echo "getting property \n";
-        if (array_key_exists($name,$this->data)){
-            return $this->data[$name];
-        }
+        $this->name = $name;
+        $this->roll = $roll;
     }
 }
 
-$obj = new simpleClass();
-$obj-> a = "Maheeb";
-echo $obj->a. "\n";
+$obj_1 = new simpleClass("Maheeb",'cse05807028');
+$obj_2 = clone $obj_1;
+$obj_2->name = "Azmaeen";
+
+echo $obj_1->name ."<br>";
+echo $obj_2->name;
 
 
 
