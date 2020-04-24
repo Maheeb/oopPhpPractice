@@ -8,41 +8,48 @@
 
 class simpleClass
 {
+        public $username="";
+        private $loggedin =false;
 
-    private $name;
+        public function login(){
 
-    /**
-     * @return string
-     */
+            $this->loggedin= true;
+        }
+        public function logout(){
+            $this->loggedin = true;
+        }
 
-    public function __construct($val)
-    {
-        return $this->name = $val;
-    }
-
-    /**
-     * @return string
-     */
-
-    public function sayHello(){
-        echo "hello world";
-    }
-
-    /**
-     * @return string
-     */
-
-    public function __destruct()
-    {
-        // TODO: Implement __destruct() method.
-
-        echo "bye bye ".$this->name;
-    }
-
+        public function isLoggedin(){
+            return $this->loggedin;
+        }
 
 }
 
-$obj = new simpleClass('Maheeb');
+class Administrator extends simpleClass{
 
-$obj->sayHello();
+    public function createForum($forumName){
+        echo $this->username." created a forum: ".$forumName."<br>";
+    }
+    public function bankMember($member){
+        echo "<br>".$this->username." banned the member: ". $member->username;
+    }
+
+}
+
+
+$member = new simpleClass();
+$member->username="Maheeb";
+$member->login();
+
+$admin = new Administrator();
+$admin->username = "Azmaeen";
+$admin->login();
+
+$admin->createForum('oopPractice');
+$admin->bankMember($member);
+
+
+
+
+
 
