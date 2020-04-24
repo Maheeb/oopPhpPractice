@@ -6,22 +6,24 @@
  * Time: 9:21 PM
  */
 
-class simpleClass
+abstract class simpleClass
 {
-     public static $count =0;
-
-     public static function counter(){
-         echo "It is a static counter";
-     }
+    abstract protected function getName($name);
 }
 
-$var = simpleClass::$count=5;
+class  childClass extends simpleClass{
 
-echo $var. "<br>";
-simpleClass::counter();
+    public function getName($name)
+    {
+        // TODO: Implement getName() method.
+        return "hi " . $name;
+    }
 
+}
 
-
+$obj = new childClass();
+$var= $obj->getName('Maheeb');
+echo $var;
 
 
 
