@@ -6,25 +6,13 @@
  * Time: 9:21 PM
  */
 
-class simpleClass{
 
-    public function sayHello(){
-        echo "I am parent class <br>";
+$test = (new class{
+
+    public function log(){
+
+        return "I am an anonymous class";
     }
-}
+});
 
-trait test{
-    public function testTrait(){
-        echo "\n I am form trait class";
-    }
-}
-
-class child extends simpleClass{
-    use test;
-
-}
-
-$obj = new child();
-$obj->sayHello();
-$obj->testTrait();
-
+echo  $test->log();
